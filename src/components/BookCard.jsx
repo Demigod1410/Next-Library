@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Eye, BookOpen, FileText } from "lucide-react";
 import Image from "next/image";
 import { formatDate, truncateText } from "@/utils/helpers";
-
+import Link from "next/link";
 /**
  * Book detail view component
  */
@@ -143,7 +143,7 @@ const BookCard = ({ book, viewMode = "grid" }) => {
             </Dialog>
             
             {book.filePath && (
-              <a href={book.filePath} target="_blank" rel="noopener noreferrer" className="flex-1">
+              <a href={book.filePath} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 flex-1">
                 <Button variant="default" size="sm" className="w-full">
                   <BookOpen className="h-4 w-4 mr-1" />
                   Read
