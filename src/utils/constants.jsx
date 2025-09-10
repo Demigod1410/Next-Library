@@ -1,7 +1,7 @@
 /**
  * Constants used throughout the application
  */
-
+import Link from "next/link";
 // Book-related constants from metadata
 export const LANGUAGES = ["sanskrit", "english", "hindi", "kannada", "marathi"];
 export const SCRIPTS = ["devanagari", "roman", "brahmi"];
@@ -42,7 +42,7 @@ export const VIEW_OPTIONS = {
 export const SAMPLE_BOOKS = [
   {
     id: 1,
-    title: "10 Judgements That Changed India",
+    title: <Link href="/books/1">10 Judgements That Changed India</Link>,
     author: "Zia Mody",
     year: 2005,
     language: "sanskrit",
@@ -56,7 +56,7 @@ export const SAMPLE_BOOKS = [
   },
   {
     id: 2,
-    title: "A Search In Secret India",
+    title: <Link href="/books/2">A Search In Secret India</Link>,
     author: "Dr Paul Brunton",
     year: 1934,
     language: "english",
@@ -164,7 +164,7 @@ export const SAMPLE_BOOKS = [
     isbn: "9788193567128",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-09T10:15:00.000Z",
-    filePath: "/books/Sarvajnana Vachanagalu_Channappa Uttangi_2017_kannada_brahmi.pdf"
+    filePath: "/books/Sarvajnana Vachanagalu _Channappa Uttangi_2017_kannada_brahmi.pdf"
   },
   {
     id: 10,
@@ -220,7 +220,7 @@ export const SAMPLE_BOOKS = [
     isbn: "9788120818330",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-13T16:50:00.000Z",
-    filePath: "/books/Shri Lalita Sahasranama Stotram Manava Prabodhan Nysa Bikaner_Vasini et al_2019_sanskrit_devanagari.pdf"
+    filePath: "/books/Shri Lalita Sahasranama Stotram Manava Prabodhan Nysa Bikaner_unknown_2019_sanskrit_devanagari.pdf"
   },
   {
     id: 14,
@@ -332,6 +332,7 @@ export const SAMPLE_BOOKS = [
     isbn: "9788193629581",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-21T08:55:00.000Z",
-    filePath: "/books/kannada booklet_Kuvempu et al_1918_kannada_brahmi.pdf"
+    filePath: "/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf",
+    downloadLink: "/public/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf"
   }
 ];

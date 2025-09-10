@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Eye, BookOpen } from "lucide-react";
+import { Eye, BookOpen, FileText } from "lucide-react";
 import Image from "next/image";
 import { formatDate, truncateText } from "@/utils/helpers";
 
@@ -63,6 +63,17 @@ const BookDetail = ({ book }) => {
         <div className="text-xs text-muted-foreground">
           Added on {formatDate(book.dateAdded)}
         </div>
+        
+        {book.filePath && (
+          <div className="mt-4">
+            <a href={book.filePath} target="_blank" rel="noopener noreferrer">
+              <Button className="w-full md:w-auto">
+                <FileText className="h-4 w-4 mr-2" />
+                Open PDF
+              </Button>
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -76,7 +87,7 @@ const BookCard = ({ book, viewMode = "grid" }) => {
   const coverSrc = book.coverImage || "/images/book_icon.jpg";
   
   return (
-    <Card className={`h-full w-full overflow-hidden transition-all hover:shadow-md ${isGrid ? "" : "flex"}`}>
+    <Card className={`h-full w-full overflow-hidden transition-all hover:shadow-md cursor-pointer ${isGrid ? "" : "flex"}`}>
       <div className={isGrid ? "w-full" : "flex w-full"}>
         <div className={`relative ${isGrid ? "aspect-[5/4] w-full" : "h-auto w-[150px]"}`}>
           <Image
@@ -115,10 +126,10 @@ const BookCard = ({ book, viewMode = "grid" }) => {
             </div>
           </CardContent>
           
-          <CardFooter className={`${isGrid ? "px-4 py-2 mt-auto" : "px-4 py-2 mt-auto"}`}>
+          <CardFooter className={`${isGrid ? "px-4 py-2 mt-auto" : "px-4 py-2 mt-auto"} flex gap-2`}>
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="secondary" size="sm" className="w-full">
+                <Button variant="secondary" size="sm" className="flex-1">
                   <Eye className="h-4 w-4 mr-1" />
                   Preview
                 </Button>
@@ -130,6 +141,15 @@ const BookCard = ({ book, viewMode = "grid" }) => {
                 <BookDetail book={book} />
               </DialogContent>
             </Dialog>
+            
+            {book.filePath && (
+              <a href={book.filePath} target="_blank" rel="noopener noreferrer" className="flex-1">
+                <Button variant="default" size="sm" className="w-full">
+                  <BookOpen className="h-4 w-4 mr-1" />
+                  Read
+                </Button>
+              </a>
+            )}
           </CardFooter>
         </div>
       </div>
@@ -149,7 +169,8 @@ BookCard.propTypes = {
     description: PropTypes.string,
     isbn: PropTypes.string,
     coverImage: PropTypes.string,
-    dateAdded: PropTypes.string
+    dateAdded: PropTypes.string,
+    filePath: PropTypes.string
   }).isRequired,
   viewMode: PropTypes.oneOf(["grid", "list"])
 };
@@ -166,7 +187,8 @@ BookDetail.propTypes = {
     description: PropTypes.string,
     isbn: PropTypes.string,
     coverImage: PropTypes.string,
-    dateAdded: PropTypes.string
+    dateAdded: PropTypes.string,
+    filePath: PropTypes.string
   }).isRequired
 };
 
