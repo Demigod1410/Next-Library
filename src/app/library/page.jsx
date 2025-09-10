@@ -195,17 +195,17 @@ export default function LibraryPage() {
       </div>
       
       {/* Book grid/list */}
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {loading ? (
           <LoadingState />
         ) : paginatedBooks.length > 0 ? (
           <div className={
             viewMode === VIEW_OPTIONS.GRID
-              ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-              : "space-y-4"
+              ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+              : "space-y-6"
           }>
             {paginatedBooks.map((book) => (
-              <div key={book.id} className="h-full">
+              <div key={book.id} className="h-full w-full">
                 <BookCard book={book} viewMode={viewMode} />
               </div>
             ))}

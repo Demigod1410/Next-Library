@@ -19,14 +19,14 @@ const BookDetail = ({ book }) => {
   const coverSrc = book.coverImage || "/images/book_icon.jpg";
 
   return (
-    <div className="grid gap-6 md:grid-cols-[300px_1fr]">
-      <div className="relative aspect-[2/3] overflow-hidden rounded-lg border">
+    <div className="grid gap-6 md:grid-cols-[350px_1fr]">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-lg border">
         <Image
           src={coverSrc}
           alt={book.title}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, 300px"
+          sizes="(max-width: 768px) 100vw, 350px"
           priority
         />
       </div>
@@ -76,9 +76,9 @@ const BookCard = ({ book, viewMode = "grid" }) => {
   const coverSrc = book.coverImage || "/images/book_icon.jpg";
   
   return (
-    <Card className={`h-full overflow-hidden transition-all hover:shadow-md ${isGrid ? "" : "flex"}`}>
-      <div className={isGrid ? "" : "flex"}>
-        <div className={`relative ${isGrid ? "aspect-[2/3] w-full" : "h-auto w-[120px]"}`}>
+    <Card className={`h-full w-full overflow-hidden transition-all hover:shadow-md ${isGrid ? "" : "flex"}`}>
+      <div className={isGrid ? "w-full" : "flex w-full"}>
+        <div className={`relative ${isGrid ? "aspect-[5/4] w-full" : "h-auto w-[150px]"}`}>
           <Image
             src={coverSrc}
             alt={book.title}
@@ -89,7 +89,7 @@ const BookCard = ({ book, viewMode = "grid" }) => {
         </div>
         
         <div className={`flex flex-col ${isGrid ? "" : "flex-1"}`}>
-          <CardHeader className={`${isGrid ? "px-4 pt-4 pb-2" : "px-4 py-2"}`}>
+          <CardHeader className={`${isGrid ? "px-4 pt-3 pb-1" : "px-4 py-2"}`}>
             <h3 className={`font-semibold leading-tight ${isGrid ? "line-clamp-2" : ""}`}>
               {book.title}
             </h3>
@@ -98,7 +98,7 @@ const BookCard = ({ book, viewMode = "grid" }) => {
             </p>
           </CardHeader>
           
-          <CardContent className={`${isGrid ? "px-4 py-2" : "px-4 py-1"}`}>
+          <CardContent className={`${isGrid ? "px-4 py-1" : "px-4 py-1"}`}>
             {!isGrid && book.description && (
               <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
                 {truncateText(book.description, 100)}
@@ -115,7 +115,7 @@ const BookCard = ({ book, viewMode = "grid" }) => {
             </div>
           </CardContent>
           
-          <CardFooter className={`${isGrid ? "px-4 py-3 mt-auto" : "px-4 py-2 mt-auto"}`}>
+          <CardFooter className={`${isGrid ? "px-4 py-2 mt-auto" : "px-4 py-2 mt-auto"}`}>
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="secondary" size="sm" className="w-full">
@@ -123,7 +123,7 @@ const BookCard = ({ book, viewMode = "grid" }) => {
                   Preview
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-3xl">
+              <DialogContent className="max-w-4xl">
                 <DialogHeader>
                   <DialogTitle>Book Details</DialogTitle>
                 </DialogHeader>

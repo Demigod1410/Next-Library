@@ -117,84 +117,84 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Statistics Dashboard */}
-      <section className="text-center">
-        <h2 className="text-2xl font-bold mb-6">Library Statistics</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-          <Card className="bg-primary/5">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-2">Total Books</h3>
-              <p className="text-3xl font-bold">{stats.total}</p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-2">Categories</h3>
-              <p className="text-3xl font-bold">{Object.keys(stats.categoryCounts).length}</p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-2">Languages</h3>
-              <p className="text-3xl font-bold">{Object.keys(stats.languageCounts).length}</p>
-            </CardContent>
-          </Card>
-          
-          <Card className="bg-primary/5">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-2">Recent Additions</h3>
-              <p className="text-3xl font-bold">{stats.recentlyAddedCount}</p>
-              <p className="text-xs text-muted-foreground mt-1">In the last 30 days</p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+    {/* Statistics Dashboard */}
+    <section className="text-center">
+      <h2 className="text-2xl font-bold mb-6">Library Statistics</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <Card className="bg-primary/5">
+          <CardContent className="p-4">
+            <h3 className="text-lg font-medium mb-1">Total Books</h3>
+            <p className="text-3xl font-bold">{stats.total}</p>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardContent className="p-4">
+            <h3 className="text-lg font-medium mb-1">Categories</h3>
+            <p className="text-3xl font-bold">{Object.keys(stats.categoryCounts).length}</p>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardContent className="p-4">
+            <h3 className="text-lg font-medium mb-1">Languages</h3>
+            <p className="text-3xl font-bold">{Object.keys(stats.languageCounts).length}</p>
+          </CardContent>
+        </Card>
+        
+        <Card className="bg-primary/5">
+          <CardContent className="p-4">
+            <h3 className="text-lg font-medium mb-1">Recent Additions</h3>
+            <p className="text-3xl font-bold">{stats.recentlyAddedCount}</p>
+            <p className="text-xs text-muted-foreground mt-1">In the last 30 days</p>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+
+    {/* Featured Books */}
+    <section className="text-center">
+      <div className="flex items-center justify-between mb-6 max-w-6xl mx-auto">
+        <h2 className="text-2xl font-bold">Featured Books</h2>
+        <Button asChild variant="outline">
+          <Link href="/library">View All</Link>
+        </Button>
+      </div>
       
-      {/* Featured Books */}
-      <section className="text-center">
-        <div className="flex items-center justify-between mb-6 max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold">Featured Books</h2>
-          <Button asChild variant="outline">
-            <Link href="/library">View All</Link>
+      {loading ? (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {Array(3).fill(0).map((_, i) => (
+            <Card key={i} className="h-[250px] animate-pulse">
+              <div className="h-full bg-muted"></div>
+            </Card>
+          ))}
+        </div>
+      ) : featuredBooks.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {featuredBooks.slice(0, 3).map((book) => (
+            <div key={book.id} className="h-full">
+              <BookCard book={book} viewMode="grid" />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-8">
+          <BookOpen className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
+          <h3 className="text-lg font-medium">No books yet</h3>
+          <p className="text-muted-foreground mb-4">
+            Start by adding some books to your library
+          </p>
+          <Button asChild>
+            <Link href="/upload">
+              <Upload className="mr-2 h-4 w-4" />
+              Add Books
+            </Link>
           </Button>
         </div>
-        
-        {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-            {Array(6).fill(0).map((_, i) => (
-              <Card key={i} className="h-[320px] animate-pulse">
-                <div className="h-full bg-muted"></div>
-              </Card>
-            ))}
-          </div>
-        ) : featuredBooks.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-            {featuredBooks.map((book) => (
-              <div key={book.id} className="h-full">
-                <BookCard book={book} viewMode="grid" />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <BookOpen className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-            <h3 className="text-lg font-medium">No books yet</h3>
-            <p className="text-muted-foreground mb-6">
-              Start by adding some books to your library
-            </p>
-            <Button asChild>
-              <Link href="/upload">
-                <Upload className="mr-2 h-4 w-4" />
-                Add Books
-              </Link>
-            </Button>
-          </div>
-        )}
-      </section>
-      
-      {/* Categories Section */}
+      )}
+    </section>
+
+    {/* Categories Section */}
       <section className="text-center">
         <h2 className="text-2xl font-bold mb-6">Browse by Category</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
