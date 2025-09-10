@@ -5,11 +5,9 @@ import PropTypes from "prop-types";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Eye, BookOpen, FileText } from "lucide-react";
+import { BookOpen, FileText } from "lucide-react";
 import Image from "next/image";
 import { formatDate, truncateText } from "@/utils/helpers";
-import Link from "next/link";
 /**
  * Book detail view component
  */
@@ -126,24 +124,9 @@ const BookCard = ({ book, viewMode = "grid" }) => {
             </div>
           </CardContent>
           
-          <CardFooter className={`${isGrid ? "px-4 py-2 mt-auto" : "px-4 py-2 mt-auto"} flex gap-2`}>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="secondary" size="sm" className="flex-1">
-                  <Eye className="h-4 w-4 mr-1" />
-                  Preview
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl">
-                <DialogHeader>
-                  <DialogTitle>Book Details</DialogTitle>
-                </DialogHeader>
-                <BookDetail book={book} />
-              </DialogContent>
-            </Dialog>
-            
+          <CardFooter className={`${isGrid ? "px-4 py-2 mt-auto" : "px-4 py-2 mt-auto"} flex justify-center`}>
             {book.filePath && (
-              <a href={book.filePath} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 flex-1">
+              <a href={book.filePath} target="_blank" rel="noopener noreferrer" className="w-2/3">
                 <Button variant="default" size="sm" className="w-full">
                   <BookOpen className="h-4 w-4 mr-1" />
                   Read
