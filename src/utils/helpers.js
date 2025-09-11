@@ -160,15 +160,17 @@ export function filterBooks(books, filters) {
  * @returns {boolean} True if book matches search
  */
 function matchesSearch(book, searchText) {
+  if (!book) return false;
+  
   const search = searchText.toLowerCase();
   return (
-    book.title.toLowerCase().includes(search) ||
-    book.author.toLowerCase().includes(search) ||
-    (book.description && book.description.toLowerCase().includes(search)) ||
-    book.category.toLowerCase().includes(search) ||
-    book.language.toLowerCase().includes(search) ||
-    book.script.toLowerCase().includes(search) ||
-    String(book.year).includes(search)
+    (book.title && typeof book.title === 'string' && book.title.toLowerCase().includes(search)) ||
+    (book.author && typeof book.author === 'string' && book.author.toLowerCase().includes(search)) ||
+    (book.description && typeof book.description === 'string' && book.description.toLowerCase().includes(search)) ||
+    (book.category && typeof book.category === 'string' && book.category.toLowerCase().includes(search)) ||
+    (book.language && typeof book.language === 'string' && book.language.toLowerCase().includes(search)) ||
+    (book.script && typeof book.script === 'string' && book.script.toLowerCase().includes(search)) ||
+    (book.year !== undefined && String(book.year).includes(search))
   );
 }
 
