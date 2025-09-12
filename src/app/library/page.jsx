@@ -171,26 +171,6 @@ export default function LibraryPage() {
             Showing <span className="font-medium">{filteredBooks.length}</span> books
           </p>
           
-          <div className="flex gap-2 justify-center sm:justify-end">
-            <Button 
-              variant="outline" 
-              size="sm"
-              disabled={filteredBooks.length === 0}
-              onClick={() => handleExport('json')}
-            >
-              <Download className="h-4 w-4 mr-1" />
-              Export JSON
-            </Button>
-            <Button 
-              variant="outline" 
-              size="sm"
-              disabled={filteredBooks.length === 0}
-              onClick={() => handleExport('csv')}
-            >
-              <Download className="h-4 w-4 mr-1" />
-              Export CSV
-            </Button>
-          </div>
         </div>
       </div>
       
