@@ -52,7 +52,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9780143423294",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-01T10:30:00.000Z",
-    filePath: "/books/10 Judgements That Changed India_Zia Mody_2005_sanskrit_devanagari.pdf"
+    filePath: "/books/10 Judgements That Changed India_Zia Mody_2005_sanskrit_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 2,
@@ -66,7 +67,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9780877286165",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-02T14:15:00.000Z",
-    filePath: "/books/A Search In Secret India_Dr Paul Brunton_1934_english_roman.pdf"
+    filePath: "/books/A Search In Secret India_Dr Paul Brunton_1934_english_roman.pdf",
+    externalLink: ""
   },
   {
     id: 3,
@@ -80,7 +82,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788172344535",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-03T09:45:00.000Z",
-    filePath: "/books/Adi Shankaracharya_Rajiv Parihar_2007_english_roman.pdf"
+    filePath: "/books/Adi Shankaracharya_Rajiv Parihar_2007_english_roman.pdf",
+    externalLink: ""
   },
   {
     id: 4,
@@ -94,7 +97,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788120800533",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-04T11:20:00.000Z",
-    filePath: "/books/Gaudpadasar Part 1_Swami Maheshanandagiri_1951_hindi_devanagari.pdf"
+    filePath: "/books/Gaudpadasar Part 1_Swami Maheshanandagiri_1951_hindi_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 5,
@@ -108,7 +112,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788120800540",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-05T15:40:00.000Z",
-    filePath: "/books/Gaudpadasar Part 2_Swami Maheshanandagiri_2004_hindi_devanagari.pdf"
+    filePath: "/books/Gaudpadasar Part 2_Swami Maheshanandagiri_2004_hindi_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 6,
@@ -122,7 +127,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788120802452",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-06T08:30:00.000Z",
-    filePath: "/books/Kenopnishbdhashyadvayam_Swami Swayamprakashgiri_1998_hindi_devanagari.pdf"
+    filePath: "/books/Kenopnishbdhashyadvayam_Swami Swayamprakashgiri_1998_hindi_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 7,
@@ -136,7 +142,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788193245156",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-07T13:25:00.000Z",
-    filePath: "/books/Lakshana Samhita_Aagama Shastra Grantha-Derebailu Harikrishna Tantri_2017_kannada_brahmi.pdf"
+    filePath: "/books/Lakshana Samhita_Aagama Shastra Grantha-Derebailu Harikrishna Tantri_2017_kannada_brahmi.pdf",
+    externalLink: ""
   },
   {
     id: 8,
@@ -150,7 +157,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788185843452",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-08T09:40:00.000Z",
-    filePath: "/books/Naishkmrysidhi_Swami Maheshanand_1996_hindi_devanagari.pdf"
+    filePath: "/books/Naishkmrysidhi_Swami Maheshanand_1996_hindi_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 9,
@@ -164,7 +172,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788193567128",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-09T10:15:00.000Z",
-    filePath: "/books/Sarvajnana Vachanagalu _Channappa Uttangi_2017_kannada_brahmi.pdf"
+    filePath: "/books/Sarvajnana Vachanagalu _Channappa Uttangi_2017_kannada_brahmi.pdf",
+    externalLink: ""
   },
   {
     id: 10,
@@ -178,7 +187,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788185208985",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-10T14:20:00.000Z",
-    filePath: "/books/Shiva Geeta Bhashyam_Shrimat Abhinav Narshimha Bharathi_1962_sanskrit_devanagari.pdf"
+    filePath: "/books/Shiva Geeta Bhashyam_Shrimat Abhinav Narshimha Bharathi_1962_sanskrit_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 11,
@@ -192,7 +202,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788175050723",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-11T11:30:00.000Z",
-    filePath: "/books/Shrada Chandrika_Shri Divakara bhatta_1934_sanskrit_devanagari.pdf"
+    filePath: "/books/Shrada Chandrika_Shri Divakara bhatta_1934_sanskrit_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 12,
@@ -206,7 +217,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788190424219",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-12T09:45:00.000Z",
-    filePath: "/books/Shree Chitrapur Guru Parampara Charitrapur Saramrit_Shri durganand shivaram maraballi_2002_marathi_devanagari.pdf"
+    filePath: "/books/Shree Chitrapur Guru Parampara Charitrapur Saramrit_Shri durganand shivaram maraballi_2002_marathi_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 13,
@@ -220,7 +232,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788120818330",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-13T16:50:00.000Z",
-    filePath: "/books/Shri Lalita Sahasranama Stotram Manava Prabodhan Nysa Bikaner_unknown_2019_sanskrit_devanagari.pdf"
+    filePath: "/books/Shri Lalita Sahasranama Stotram Manava Prabodhan Nysa Bikaner_unknown_2019_sanskrit_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 14,
@@ -234,7 +247,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788182881228",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-14T10:05:00.000Z",
-    filePath: "/books/Shri Raman Gita_Shri Vashistha Ganapati Muni-1_1946_sanskrit_devanagari.pdf"
+    filePath: "/books/Shri Raman Gita_Shri Vashistha Ganapati Muni-1_1946_sanskrit_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 15,
@@ -248,7 +262,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788186050217",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-15T12:20:00.000Z",
-    filePath: "/books/Shri-Vidya-Ratna-Sutram-of-Gaud-Datiya_Gaudpadacharya_2006_sanskrit_devanagari.pdf"
+    filePath: "/books/Shri-Vidya-Ratna-Sutram-of-Gaud-Datiya_Gaudpadacharya_2006_sanskrit_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 16,
@@ -262,7 +277,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788185141978",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-16T14:30:00.000Z",
-    filePath: "/books/Shrimooka panchashathi_Lakshmi Halasyam_2005_sanskrit_devanagari.pdf"
+    filePath: "/books/Shrimooka panchashathi_Lakshmi Halasyam_2005_sanskrit_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 17,
@@ -276,7 +292,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788185054186",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-17T09:25:00.000Z",
-    filePath: "/books/South Indian Bronzes_C.Sivaramamurti_1963_english_roman.pdf"
+    filePath: "/books/South Indian Bronzes_C.Sivaramamurti_1963_english_roman.pdf",
+    externalLink: ""
   },
   {
     id: 18,
@@ -290,7 +307,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9780007211357",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-18T11:15:00.000Z",
-    filePath: "/books/Space-Collins_David Hawksett_2005_english_roman.pdf"
+    filePath: "/books/Space-Collins_David Hawksett_2005_english_roman.pdf",
+    externalLink: ""
   },
   {
     id: 19,
@@ -304,7 +322,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788193255629",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-19T13:40:00.000Z",
-    filePath: "/books/Stutimanjari Kannada_Malini Madiman Pachi_2013_kannada_brahmi.pdf"
+    filePath: "/books/Stutimanjari Kannada_Malini Madiman Pachi_2013_kannada_brahmi.pdf",
+    externalLink: ""
   },
   {
     id: 20,
@@ -318,7 +337,8 @@ export const SAMPLE_BOOKS = [
     isbn: "9788186050743",
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-20T10:10:00.000Z",
-    filePath: "/books/Tara-Kalpa-Taru_Ramanand Sharma,Ruthsheel sharma_2006_hindi_devanagari.pdf"
+    filePath: "/books/Tara-Kalpa-Taru_Ramanand Sharma,Ruthsheel sharma_2006_hindi_devanagari.pdf",
+    externalLink: ""
   },
   {
     id: 21,
@@ -333,7 +353,8 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-21T08:55:00.000Z",
     filePath: "/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf",
-    downloadLink: "/public/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf"
+    downloadLink: "/public/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf",
+    externalLink: ""
   },
   {
     id: 22,
