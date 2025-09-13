@@ -5,19 +5,19 @@ import Link from "next/link";
 // Book-related constants from metadata
 export const LANGUAGES = ["sanskrit", "english", "hindi", "kannada", "marathi"];
 export const SCRIPTS = ["devanagari", "roman", "brahmi"];
-export const CATEGORIES = ["Philosophy", "Bhashya", "Upanishad", "Tantra", "Purana", "Veda"];
+export const CATEGORIES = ["Philosophy", "Bhashya", "Upanishad", "Tantra", "Purana", "Veda", "Yoga"];
 
 // Pagination
 export const ITEMS_PER_PAGE = 12;
 
 // Book metadata statistics
 export const BOOK_METADATA = {
-  total_books: 21,
+  total_books: 23,
   languages: ["sanskrit", "english", "hindi", "kannada", "marathi"],
   scripts: ["devanagari", "roman", "brahmi"],
-  categories: ["Philosophy", "Bhashya", "Upanishad", "Tantra", "Purana", "Veda"],
+  categories: ["Philosophy", "Bhashya", "Upanishad", "Tantra", "Purana", "Veda", "Yoga"],
   year_range: {
-    earliest: 1918,
+    earliest: 1896,
     latest: 2019
   }
 };
@@ -42,7 +42,7 @@ export const VIEW_OPTIONS = {
 export const SAMPLE_BOOKS = [
   {
     id: 1,
-    title: <Link href="/books/1">10 Judgements That Changed India</Link>,
+    title: "10 Judgements That Changed India",
     author: "Zia Mody",
     year: 2005,
     language: "sanskrit",
@@ -56,7 +56,7 @@ export const SAMPLE_BOOKS = [
   },
   {
     id: 2,
-    title: <Link href="/books/2">A Search In Secret India</Link>,
+    title: "A Search In Secret India",
     author: "Dr Paul Brunton",
     year: 1934,
     language: "english",
@@ -334,5 +334,35 @@ export const SAMPLE_BOOKS = [
     dateAdded: "2025-09-21T08:55:00.000Z",
     filePath: "/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf",
     downloadLink: "/public/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf"
+  },
+  {
+    id: 22,
+    title: "Autobiography of a Yogi",
+    author: "Paramahansa Yogananda",
+    year: 1946,
+    language: "english",
+    script: "roman",
+    category: "Yoga",
+    description: "A spiritual classic that recounts the life of Paramahansa Yogananda and his encounters with spiritual figures of both the Eastern and Western traditions.",
+    isbn: "9780876120798",
+    coverImage: "/images/book_icon.jpg",
+    dateAdded: "2025-09-22T09:30:00.000Z",
+    filePath: "/books/Autobiography-of-a-Yogi_Paramahansa-Yogananda_1946_english_roman.pdf",
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EU50IBf6_mFPo-tGzQ3WoRoBcsO_Fx02qan_dHIwxjKmiQ?e=AC6bGK"
+  },
+  {
+    id: 23,
+    title: "The Rigveda",
+    author: "Ralph T.H. Griffith",
+    year: 1896,
+    language: "english",
+    script: "roman",
+    category: "Veda",
+    description: "A seminal translation of the ancient Rigveda, one of the four canonical sacred texts of Hinduism known as the Vedas.",
+    isbn: "9780140449891",
+    coverImage: "/images/book_icon.jpg",
+    dateAdded: "2025-09-23T11:45:00.000Z",
+    filePath: "/books/The Rigvesda_Ralph-t-h-griffith_1896_english_roman.pdf",
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EYcBXnCIQfRNn6oTOHIqKsYBq960PpJ2sZ4nDsCt3tKivw?e=Mt63RF"
   }
 ];
