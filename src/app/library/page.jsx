@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -16,12 +16,31 @@ import { exportToJson, exportToCsv } from "@/utils/helpers";
 import { toast } from "sonner";
 import { Grid, List, Download, Loader2, BookOpen } from "lucide-react";
 
+// Main component that doesn't use useSearchParams
 export default function LibraryPage() {
   const { books, loading } = useBooks();
   const [viewMode, setViewMode] = useState(VIEW_OPTIONS.GRID);
-  const searchParams = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
+  
+  return (
+    <Suspense fallback={<LoadingState />}>
+      <LibraryContent 
+        books={books}
+        loading={loading}
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        itemsPerPage={itemsPerPage}
+      />
+    </Suspense>
+  );
+}
+
+// Inner component that safely uses useSearchParams inside Suspense
+function LibraryContent({ books, loading, viewMode, setViewMode, currentPage, setCurrentPage, itemsPerPage }) {
+  const searchParams = useSearchParams();
   
   // Get search parameters from URL
   const urlSearchTerm = searchParams.get("search");
@@ -98,16 +117,7 @@ export default function LibraryPage() {
     </div>
   );
   
-  // Loading state component
-  const LoadingState = () => (
-    <div className="text-center py-20">
-      <Loader2 className="h-16 w-16 mx-auto text-muted-foreground mb-4 animate-spin" />
-      <h3 className="text-lg font-medium">Loading your library</h3>
-      <p className="text-muted-foreground">
-        Please wait while we load your books...
-      </p>
-    </div>
-  );
+  // Empty state component (keeping in the component for scoped access to resetFilters)
   
   return (
     <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 space-y-6 max-w-7xl">
@@ -273,3 +283,14 @@ export default function LibraryPage() {
     </div>
   );
 }
+
+// Add LoadingState definition at the top level so it's available to both components
+const LoadingState = () => (
+  <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center py-20">
+    <Loader2 className="h-16 w-16 mx-auto text-muted-foreground mb-4 animate-spin" />
+    <h3 className="text-lg font-medium">Loading your library</h3>
+    <p className="text-muted-foreground">
+      Please wait while we load your books...
+    </p>
+  </div>
+);
