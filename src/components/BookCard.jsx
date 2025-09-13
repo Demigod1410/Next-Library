@@ -64,7 +64,7 @@ const BookDetail = ({ book }) => {
         
         {book.filePath && (
           <div className="mt-4">
-            <a href={book.filePath} target="_blank" rel="noopener noreferrer">
+            <a href={process.env.NODE_ENV === "production" ? `${process.env.NEXT_PUBLIC_BASE_URL || ""}${book.filePath}` : book.filePath} target="_blank" rel="noopener noreferrer">
               <Button className="w-full md:w-auto">
                 <FileText className="h-4 w-4 mr-2" />
                 Open PDF
@@ -126,7 +126,7 @@ const BookCard = ({ book, viewMode = "grid" }) => {
           
           <CardFooter className={`${isGrid ? "px-4 py-2 mt-auto" : "px-4 py-2 mt-auto"} flex justify-center`}>
             {book.filePath && (
-              <a href={book.filePath} target="_blank" rel="noopener noreferrer" className="w-2/3">
+              <a href={process.env.NODE_ENV === "production" ? `${process.env.NEXT_PUBLIC_BASE_URL || ""}${book.filePath}` : book.filePath} target="_blank" rel="noopener noreferrer" className="w-2/3">
                 <Button variant="default" size="sm" className="w-full">
                   <BookOpen className="h-4 w-4 mr-1" />
                   Read
