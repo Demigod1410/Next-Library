@@ -67,7 +67,7 @@ const BookDetail = ({ book }) => {
             <a href={book.externalLink || (process.env.NODE_ENV === "production" ? `${process.env.NEXT_PUBLIC_BASE_URL || ""}${book.filePath}` : book.filePath)} target="_blank" rel="noopener noreferrer">
               <Button className="w-full md:w-auto">
                 <FileText className="h-4 w-4 mr-2" />
-                Open PDF
+                {book.externalLink ? "Open Online" : "Open PDF"}
               </Button>
             </a>
           </div>
@@ -129,7 +129,7 @@ const BookCard = ({ book, viewMode = "grid" }) => {
               <a href={book.externalLink || (process.env.NODE_ENV === "production" ? `${process.env.NEXT_PUBLIC_BASE_URL || ""}${book.filePath}` : book.filePath)} target="_blank" rel="noopener noreferrer" className="w-2/3">
                 <Button variant="default" size="sm" className="w-full">
                   <BookOpen className="h-4 w-4 mr-1" />
-                  Read
+                  {book.externalLink ? "Read Online" : "Read"}
                 </Button>
               </a>
             )}
