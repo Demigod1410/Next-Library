@@ -53,7 +53,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-01T10:30:00.000Z",
     filePath: "/books/10 Judgements That Changed India_Zia Mody_2005_sanskrit_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EZM-BeCyXZ9JpMgbhYWr4SwBSdd4on01zYUgVW__1SibuA?e=ruOW4f"
   },
   {
     id: 2,
@@ -68,7 +68,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-02T14:15:00.000Z",
     filePath: "/books/A Search In Secret India_Dr Paul Brunton_1934_english_roman.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EQAHW3R79AxBkZmmFw-W8DwB220PiqKNZZG-lqr5y2gS9A?e=uCUClL"
   },
   {
     id: 3,
@@ -83,7 +83,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-03T09:45:00.000Z",
     filePath: "/books/Adi Shankaracharya_Rajiv Parihar_2007_english_roman.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EdUL0rXGezNLu4tGgZyiaiABna1iy2CLKjzaV6MNxZrBxQ?e=hgNX3R"
   },
   {
     id: 4,
@@ -98,7 +98,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-04T11:20:00.000Z",
     filePath: "/books/Gaudpadasar Part 1_Swami Maheshanandagiri_1951_hindi_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EcsOP-xT-ipJoPs7NbejD2gBdLZsH14sx6qgTVkMOz59GA?e=aXdRK3"
   },
   {
     id: 5,
@@ -113,7 +113,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-05T15:40:00.000Z",
     filePath: "/books/Gaudpadasar Part 2_Swami Maheshanandagiri_2004_hindi_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EU_MlxrFvCdBi43xiVRRDfgBPG_WbLe0EIYnkqCKEhsR4g?e=rlxnpq"
   },
   {
     id: 6,
@@ -128,7 +128,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-06T08:30:00.000Z",
     filePath: "/books/Kenopnishbdhashyadvayam_Swami Swayamprakashgiri_1998_hindi_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EUWzZ82Vxi5Og2EHYo_ZkT4BxUplDZFrvcHkeBfuNf2XNg?e=qYvFsd"
   },
   {
     id: 7,
@@ -143,7 +143,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-07T13:25:00.000Z",
     filePath: "/books/Lakshana Samhita_Aagama Shastra Grantha-Derebailu Harikrishna Tantri_2017_kannada_brahmi.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EaExqsHsUZxLvNjwaOL7Go8BgdFPl_i2Yj63_hyTzbF1vw?e=4jy8Jf"
   },
   {
     id: 8,
@@ -158,7 +158,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-08T09:40:00.000Z",
     filePath: "/books/Naishkmrysidhi_Swami Maheshanand_1996_hindi_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EanrNiGEjq1Ji9ZBZdq_JzMBacD8MKgOKsfJJIrH7bNXwg?e=x4xXde"
   },
   {
     id: 9,
@@ -173,7 +173,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-09T10:15:00.000Z",
     filePath: "/books/Sarvajnana Vachanagalu _Channappa Uttangi_2017_kannada_brahmi.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/Ea7FXS7kbz5Bq3rLv9q1_jcBbEp7-AAkHV4XZFiPUDPtnw?e=eGqipm"
   },
   {
     id: 10,
@@ -188,7 +188,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-10T14:20:00.000Z",
     filePath: "/books/Shiva Geeta Bhashyam_Shrimat Abhinav Narshimha Bharathi_1962_sanskrit_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EfA_nIG25uZAkS21Bo2fGBABVTh9P6-Bmk7BGdkRYqD2RQ?e=9HORAv"
   },
   {
     id: 11,
@@ -203,7 +203,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-11T11:30:00.000Z",
     filePath: "/books/Shrada Chandrika_Shri Divakara bhatta_1934_sanskrit_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EUtZ1v5waeNHiGJkd4Ussg0BYiA3kdh9FommPZTziCeeKw?e=DAcTJi"
   },
   {
     id: 12,
@@ -218,7 +218,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-12T09:45:00.000Z",
     filePath: "/books/Shree Chitrapur Guru Parampara Charitrapur Saramrit_Shri durganand shivaram maraballi_2002_marathi_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EWC2lHfksbdAu4lnrPIlMSUBLuw2qfoOT-5_EMRRHH8ZRg?e=uPJ47T"
   },
   {
     id: 13,
@@ -233,7 +233,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-13T16:50:00.000Z",
     filePath: "/books/Shri Lalita Sahasranama Stotram Manava Prabodhan Nysa Bikaner_unknown_2019_sanskrit_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EUQPtpBQGAhPmpCwdVcbdUoBP2dBAq3Exz7wjOnfz0TR8Q?e=a81oZu"
   },
   {
     id: 14,
@@ -248,7 +248,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-14T10:05:00.000Z",
     filePath: "/books/Shri Raman Gita_Shri Vashistha Ganapati Muni-1_1946_sanskrit_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/Eavh9jTxTWpLu_6b5dMDyo8Bwk-bD4ytYoyfaDPdn76Krw?e=K738wK"
   },
   {
     id: 15,
@@ -263,7 +263,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-15T12:20:00.000Z",
     filePath: "/books/Shri-Vidya-Ratna-Sutram-of-Gaud-Datiya_Gaudpadacharya_2006_sanskrit_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EQrtu3_0bjdOj5sAF2LvvHgBwdslqHr2N8czBwuZnTWKow?e=6mcm4F"
   },
   {
     id: 16,
@@ -278,7 +278,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-16T14:30:00.000Z",
     filePath: "/books/Shrimooka panchashathi_Lakshmi Halasyam_2005_sanskrit_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/ERQj8qdMZhpCrmvLvkKHpsABwIM--mBWNu1_kK4ZOWHu-w?e=eXfPGv"
   },
   {
     id: 17,
@@ -293,7 +293,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-17T09:25:00.000Z",
     filePath: "/books/South Indian Bronzes_C.Sivaramamurti_1963_english_roman.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EWalDVCDDwFEvIxJBjeAva4BlC67hKwIvUb68CMMnqN80g?e=eeUghg"
   },
   {
     id: 18,
@@ -308,7 +308,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-18T11:15:00.000Z",
     filePath: "/books/Space-Collins_David Hawksett_2005_english_roman.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EdHJG32oXqBDnI1bp_NK0LwBkhKpp3yNk_egfCmNIHdmHQ?e=IsdCDO"
   },
   {
     id: 19,
@@ -323,7 +323,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-19T13:40:00.000Z",
     filePath: "/books/Stutimanjari Kannada_Malini Madiman Pachi_2013_kannada_brahmi.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EYbIqEpkdxROvodI94OQVgcB7bV1f8IszxloZTjOVCFuAw?e=AfZsJk"
   },
   {
     id: 20,
@@ -338,7 +338,7 @@ export const SAMPLE_BOOKS = [
     coverImage: "/images/book_icon.jpg",
     dateAdded: "2025-09-20T10:10:00.000Z",
     filePath: "/books/Tara-Kalpa-Taru_Ramanand Sharma,Ruthsheel sharma_2006_hindi_devanagari.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EVWnbTUfNIRLsE5CyED9HVUBBJDohE2id_rZ2fe48Uo5Rw?e=eLJiYt"
   },
   {
     id: 21,
@@ -354,7 +354,7 @@ export const SAMPLE_BOOKS = [
     dateAdded: "2025-09-21T08:55:00.000Z",
     filePath: "/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf",
     downloadLink: "/public/books/kannada booklet_Unknown_1918_kannada_brahmi.pdf",
-    externalLink: ""
+    externalLink: "https://1drv.ms/b/c/0bb4580516780fb4/EVIx9FmXB5FCgjyAD3L5S_MBhT7D1a0A29zMQiSJ4tDA6A?e=qIaMw4"
   },
   {
     id: 22,
