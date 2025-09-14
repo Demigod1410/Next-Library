@@ -99,34 +99,11 @@ export default function UploadPage() {
         {/* Upload Tips */}
         <Card>
           <CardContent className="p-6">
-            <Tabs defaultValue="json">
+            <Tabs defaultValue="cover">
               <TabsList className="mb-4">
-                <TabsTrigger value="json">JSON Format</TabsTrigger>
                 <TabsTrigger value="cover">Cover Images</TabsTrigger>
                 <TabsTrigger value="tips">Tips</TabsTrigger>
               </TabsList>
-              
-              <TabsContent value="json" className="space-y-4">
-                <h3 className="text-lg font-medium">JSON Format for Import</h3>
-                <p className="text-muted-foreground">
-                  When importing books via JSON, use the following structure:
-                </p>
-                <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
-{`[
-  {
-    "title": "Book Title",
-    "author": "Author Name",
-    "year": 2023,
-    "language": "english",
-    "script": "roman",
-    "category": "Philosophy",
-    "description": "Book description...",
-    "isbn": "1234567890123" // optional
-  },
-  // Additional books...
-]`}
-                </pre>
-              </TabsContent>
               
               <TabsContent value="cover" className="space-y-4">
                 <h3 className="text-lg font-medium">Cover Image Recommendations</h3>

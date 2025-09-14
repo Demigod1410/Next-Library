@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { CATEGORIES, LANGUAGES, SCRIPTS } from "@/utils/constants";
 import { validateBook, validateJsonImport, validateFile } from "@/utils/validation";
 import { toast } from "sonner";
-import { Upload, AlertCircle, Plus, Loader2 } from "lucide-react";
+import { Upload, AlertCircle, Plus, Loader2, FileText } from "lucide-react";
 
 /**
  * UploadForm component for adding books to library
@@ -25,7 +25,9 @@ const UploadForm = ({ onAddBook, onImportBooks }) => {
   const [uploadError, setUploadError] = useState(null);
   const fileInputRef = useRef(null);
   const coverInputRef = useRef(null);
+  const bookFileInputRef = useRef(null);
   const [coverImage, setCoverImage] = useState(null);
+  const [bookFile, setBookFile] = useState(null);
   
   // Form setup using react-hook-form
   const {
@@ -55,12 +57,18 @@ const UploadForm = ({ onAddBook, onImportBooks }) => {
         data.coverImage = coverImage;
       }
       
+      // Add book file if available
+      if (bookFile) {
+        data.bookFile = bookFile;
+      }
+      
       const result = await onAddBook(data);
       
       if (result.success) {
         toast.success(result.message);
         reset();
         setCoverImage(null);
+        setBookFile(null);
       } else {
         toast.error(result.message);
       }
@@ -142,6 +150,32 @@ const UploadForm = ({ onAddBook, onImportBooks }) => {
     };
     
     reader.readAsDataURL(file);
+  };
+  
+  // Handle book file upload
+  const handleBookFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    
+    // Validate file type (PDF, DOC, DOCX)
+    const fileType = file.type;
+    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    
+    if (!validTypes.includes(fileType)) {
+      toast.error("Please upload a valid PDF or Word document");
+      return;
+    }
+    
+    // Validate file size (max 200MB)
+    const maxSize = 200 * 1024 * 1024; // 200MB
+    if (file.size > maxSize) {
+      toast.error("File is too large. Maximum file size is 200MB.");
+      return;
+    }
+    
+    // Store the file
+    setBookFile(file);
+    toast.success(`File "${file.name}" ready to upload`);
   };
   
   // Import books from preview data
@@ -339,7 +373,7 @@ const UploadForm = ({ onAddBook, onImportBooks }) => {
                 />
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="isbn" className="text-sm font-medium">
                     ISBN
@@ -350,31 +384,63 @@ const UploadForm = ({ onAddBook, onImportBooks }) => {
                     placeholder="Optional"
                   />
                 </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-medium block">
-                    Cover Image
-                  </label>
-                  <div className="flex items-center gap-2">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => coverInputRef.current?.click()}
-                    >
-                      Upload Cover
-                    </Button>
-                    <input
-                      ref={coverInputRef}
-                      type="file"
-                      accept="image/jpeg,image/png,image/webp"
-                      className="hidden"
-                      onChange={handleCoverImageUpload}
-                    />
-                    {coverImage && (
-                      <Badge variant="outline" className="bg-primary/10">
-                        Cover Image Added
-                      </Badge>
-                    )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium block">
+                      Cover Image
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => coverInputRef.current?.click()}
+                      >
+                        Upload Cover
+                      </Button>
+                      <input
+                        ref={coverInputRef}
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                        className="hidden"
+                        onChange={handleCoverImageUpload}
+                      />
+                      
+                      {coverImage && (
+                        <Badge variant="outline" className="bg-primary/10">
+                          Cover Image Added
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium block">
+                      Book File
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => bookFileInputRef.current?.click()}
+                      >
+                        <FileText className="h-4 w-4 mr-2" />
+                        Upload Book PDF/DOC
+                      </Button>
+                      <input
+                        ref={bookFileInputRef}
+                        type="file"
+                        accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        className="hidden"
+                        onChange={handleBookFileUpload}
+                      />
+                      
+                      {bookFile && (
+                        <Badge variant="outline" className="bg-primary/10">
+                          {bookFile.name.length > 20 ? bookFile.name.substring(0, 20) + '...' : bookFile.name}
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
