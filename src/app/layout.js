@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { AuthProvider } from "@/contexts/AuthContext";
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
@@ -31,20 +32,22 @@ export default function RootLayout({ children }) {
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-1 w-full">
-              {children}
-            </main>
-            <footer className="py-6 border-t">
-              <div className="container mx-auto flex flex-col items-center justify-center gap-2 text-center md:flex-row md:gap-4 max-w-7xl">
-                <p className="text-sm text-muted-foreground">
-                  © {new Date().getFullYear()} Modern Book Library. All rights reserved.
-                </p>
-              </div>
-            </footer>
-            <Toaster position="bottom-right" />
-          </div>
+          <AuthProvider>
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <main className="flex-1 w-full">
+                {children}
+              </main>
+              <footer className="py-6 border-t">
+                <div className="container mx-auto flex flex-col items-center justify-center gap-2 text-center md:flex-row md:gap-4 max-w-7xl">
+                  <p className="text-sm text-muted-foreground">
+                    © {new Date().getFullYear()} Modern Book Library. All rights reserved.
+                  </p>
+                </div>
+              </footer>
+              <Toaster position="bottom-right" />
+            </div>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
