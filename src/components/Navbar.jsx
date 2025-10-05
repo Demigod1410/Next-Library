@@ -2,11 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu, Sun, Moon, BookOpen, Upload, Home } from "lucide-react";
+import { Menu, Sun, Moon, BookOpen, Upload, Home, LogIn, LogOut } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useAuth } from "@/contexts/AuthContext";
 import PropTypes from "prop-types";
 
 const ThemeToggle = () => {
@@ -28,11 +29,14 @@ const ThemeToggle = () => {
 
 const NavItems = ({ className = "", direction = "horizontal" }) => {
   const pathname = usePathname();
+  const { isAuthenticated } = useAuth();
   
   const navItems = [
     { path: "/", label: "Home", icon: Home },
-    { path: "/library", label: "Library", icon: BookOpen },
-    { path: "/upload", label: "Upload", icon: Upload },
+    ...(isAuthenticated ? [
+      { path: "/library", label: "Library", icon: BookOpen },
+      { path: "/upload", label: "Upload", icon: Upload },
+    ] : [])
   ];
   
   return (
@@ -66,6 +70,18 @@ NavItems.propTypes = {
 };
 
 const MobileNav = () => {
+  const { isAuthenticated, logout } = useAuth();
+  const router = useRouter();
+  
+  const handleAuthAction = () => {
+    if (isAuthenticated) {
+      logout();
+      router.push("/");
+    } else {
+      router.push("/login");
+    }
+  };
+  
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -80,6 +96,25 @@ const MobileNav = () => {
             <span>Book Library</span>
           </Link>
           <NavItems direction="vertical" />
+          <div className="mt-6 pt-6 border-t">
+            <Button 
+              variant="outline" 
+              className="w-full justify-start" 
+              onClick={handleAuthAction}
+            >
+              {isAuthenticated ? (
+                <>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </>
+              ) : (
+                <>
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Login
+                </>
+              )}
+            </Button>
+          </div>
         </div>
       </SheetContent>
     </Sheet>
@@ -87,6 +122,18 @@ const MobileNav = () => {
 };
 
 export default function Navbar() {
+  const { isAuthenticated, logout } = useAuth();
+  const router = useRouter();
+  
+  const handleAuthAction = () => {
+    if (isAuthenticated) {
+      logout();
+      router.push("/");
+    } else {
+      router.push("/login");
+    }
+  };
+  
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-14 items-center max-w-7xl">
@@ -99,8 +146,25 @@ export default function Navbar() {
             </Link>
           </div>
           <NavItems className="hidden md:block" />
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             <ThemeToggle />
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={handleAuthAction}
+            >
+              {isAuthenticated ? (
+                <>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </>
+              ) : (
+                <>
+                  <LogIn className="h-4 w-4 mr-2" />
+                  Login
+                </>
+              )}
+            </Button>
           </div>
         </div>
       </div>
