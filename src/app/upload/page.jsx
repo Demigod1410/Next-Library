@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import UploadForm from "@/components/UploadForm";
+import AuthWrapper from "@/components/AuthWrapper";
 import { toast } from "sonner";
 import { BookOpen, ChevronRight, Upload } from "lucide-react";
 
@@ -17,6 +18,21 @@ export default function UploadPage() {
     booksAdded: 0,
     lastAction: null,
   });
+  
+  return (
+    <AuthWrapper>
+      <UploadContent
+        addBook={addBook}
+        importBooks={importBooks}
+        router={router}
+        uploadStats={uploadStats}
+        setUploadStats={setUploadStats}
+      />
+    </AuthWrapper>
+  );
+}
+
+function UploadContent({ addBook, importBooks, router, uploadStats, setUploadStats }) {
 
   const handleAddBook = async (bookData) => {
     const result = await addBook(bookData);
