@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import SearchBar from "@/components/SearchBar";
 import FilterPanel from "@/components/FilterPanel";
 import BookCard from "@/components/BookCard";
+import AuthWrapper from "@/components/AuthWrapper";
 import { useBooks } from "@/hooks/useBooks";
 import { useSearch } from "@/hooks/useSearch";
 import { SORT_OPTIONS, VIEW_OPTIONS } from "@/utils/constants";
@@ -24,17 +25,19 @@ export default function LibraryPage() {
   const itemsPerPage = 12;
   
   return (
-    <Suspense fallback={<LoadingState />}>
-      <LibraryContent 
-        books={books}
-        loading={loading}
-        viewMode={viewMode}
-        setViewMode={setViewMode}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        itemsPerPage={itemsPerPage}
-      />
-    </Suspense>
+    <AuthWrapper>
+      <Suspense fallback={<LoadingState />}>
+        <LibraryContent 
+          books={books}
+          loading={loading}
+          viewMode={viewMode}
+          setViewMode={setViewMode}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          itemsPerPage={itemsPerPage}
+        />
+      </Suspense>
+    </AuthWrapper>
   );
 }
 
