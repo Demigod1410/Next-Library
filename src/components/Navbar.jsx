@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -92,7 +93,13 @@ const MobileNav = () => {
       <SheetContent side="left" className="w-[240px] sm:w-[300px]">
         <div className="px-2 py-6">
           <Link href="/" className="flex items-center gap-2 font-bold text-2xl mb-8 text-primary">
-            <BookOpen className="h-6 w-6" />
+            <Image 
+              src="/logo.svg"
+              alt="Library Logo"
+              width={24}
+              height={24}
+              className="h-6 w-6"
+            />
             <span>Book Library</span>
           </Link>
           <NavItems direction="vertical" />
@@ -141,7 +148,13 @@ export default function Navbar() {
           <div className="flex items-center">
             <MobileNav />
             <Link href="/" className="hidden md:flex items-center gap-2 font-bold text-xl text-primary">
-              <BookOpen className="h-5 w-5" />
+              <Image 
+                src="/logo.svg"
+                alt="Library Logo"
+                width={20}
+                height={20}
+                className="h-5 w-5"
+              />
               <span>Modern Book Library</span>
             </Link>
           </div>

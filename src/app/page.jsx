@@ -111,7 +111,14 @@ export default function Home() {
               <div className="bg-primary/10 rounded-lg"></div>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <BookOpen className="h-32 w-32 text-primary" />
+              <Image 
+                src="/logo.svg"
+                alt="Shri Chitrapur Math Logo"
+                width={240}
+                height={240}
+                priority
+                className="object-contain"
+              />
             </div>
           </motion.div>
         </div>
@@ -179,7 +186,13 @@ export default function Home() {
         </div>
       ) : (
         <div className="text-center py-8">
-          <BookOpen className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
+          <Image 
+            src="/chitrapur-math-logo.svg"
+            alt="Shri Chitrapur Math Logo"
+            width={48}
+            height={48}
+            className="mx-auto mb-3"
+          />
           <h3 className="text-lg font-medium">No books yet</h3>
           <p className="text-muted-foreground mb-4">
             Start by adding some books to your library
