@@ -15,6 +15,7 @@ export const useSearch = (books = []) => {
     language: "all",
     category: "all",
     script: "all",
+    subcategory: "all",
     yearRange: { min: null, max: null }
   });
   const [sortBy, setSortBy] = useState("dateAdded-desc");
