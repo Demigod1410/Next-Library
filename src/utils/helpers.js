@@ -142,6 +142,11 @@ export function filterBooks(books, filters) {
       return false;
     }
     
+    // Subcategory filter
+    if (filters.subcategory && filters.subcategory !== 'all' && book.subcategory !== filters.subcategory) {
+      return false;
+    }
+    
     // Year range filter
     if (filters.yearRange) {
       const { min, max } = filters.yearRange;
