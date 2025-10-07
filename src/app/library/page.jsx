@@ -4,7 +4,7 @@ import React, { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs,  TabsList, TabsTrigger} from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import SearchBar from "@/components/SearchBar";
 import FilterPanel from "@/components/FilterPanel";
@@ -15,7 +15,16 @@ import { useSearch } from "@/hooks/useSearch";
 import { SORT_OPTIONS, VIEW_OPTIONS } from "@/utils/constants";
 import { exportToJson, exportToCsv } from "@/utils/helpers";
 import { toast } from "sonner";
-import { Grid, List, Download, Loader2, BookOpen } from "lucide-react";
+import { Grid, List, Table as TableIcon, Download, Loader2, BookOpen } from "lucide-react";
+import { 
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from "@/components/ui/table";
 
 // Main component that doesn't use useSearchParams
 export default function LibraryPage() {
@@ -50,6 +59,14 @@ function LibraryContent({ books, loading, viewMode, setViewMode, currentPage, se
   const urlCategory = searchParams.get("category");
   const urlLanguage = searchParams.get("language");
   
+  // Adjust items per page based on view mode
+  const getItemsPerPageByViewMode = () => {
+    if (viewMode === VIEW_OPTIONS.TABLE) {
+      return 30; // Show 30 rows in table view
+    }
+    return itemsPerPage; // Default for grid/list views
+  };
+  
   // Initialize search with URL parameters
   const {
     searchText,
@@ -78,16 +95,17 @@ function LibraryContent({ books, loading, viewMode, setViewMode, currentPage, se
     }
   }, [urlSearchTerm, urlCategory, urlLanguage, setSearchText, updateFilter]);
   
-  // Reset current page when filters change
+  // Reset current page when filters or viewMode change
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchText, filters, sortBy]);
+  }, [searchText, filters, sortBy, viewMode]);
   
   // Handle pagination
-  const totalPages = Math.ceil(filteredBooks.length / itemsPerPage);
+  const effectiveItemsPerPage = getItemsPerPageByViewMode();
+  const totalPages = Math.ceil(filteredBooks.length / effectiveItemsPerPage);
   const paginatedBooks = filteredBooks.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
+    (currentPage - 1) * effectiveItemsPerPage,
+    currentPage * effectiveItemsPerPage
   );
   
   const handleExport = (format) => {
@@ -166,6 +184,9 @@ function LibraryContent({ books, loading, viewMode, setViewMode, currentPage, se
                 <TabsTrigger value={VIEW_OPTIONS.LIST} className="data-[state=active]:bg-muted">
                   <List className="h-4 w-4" />
                 </TabsTrigger>
+                <TabsTrigger value={VIEW_OPTIONS.TABLE} className="data-[state=active]:bg-muted">
+                  <TableIcon className="h-4 w-4" />
+                </TabsTrigger>
               </TabsList>
             </Tabs>
           </div>
@@ -187,22 +208,59 @@ function LibraryContent({ books, loading, viewMode, setViewMode, currentPage, se
         </div>
       </div>
       
-      {/* Book grid/list */}
+      {/* Book grid/list/table */}
       <div className="max-w-7xl mx-auto">
         {loading ? (
           <LoadingState />
         ) : paginatedBooks.length > 0 ? (
-          <div className={
-            viewMode === VIEW_OPTIONS.GRID
-              ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
-              : "space-y-6"
-          }>
-            {paginatedBooks.map((book) => (
-              <div key={book.id} className="h-full w-full">
-                <BookCard book={book} viewMode={viewMode} />
-              </div>
-            ))}
-          </div>
+          viewMode === VIEW_OPTIONS.TABLE ? (
+            <div className="rounded-md border">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Book Title</TableHead>
+                    <TableHead>Author</TableHead>
+                    <TableHead>Language</TableHead>
+                    <TableHead>Category</TableHead>
+                    <TableHead>Year</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {paginatedBooks.map((book) => (
+                    <TableRow key={book.id}>
+                      <TableCell>
+                        <a 
+                          href={book.externalLink || (process.env.NODE_ENV === "production" ? `${process.env.NEXT_PUBLIC_BASE_URL || ""}${book.filePath}` : book.filePath)} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="font-medium text-primary hover:underline flex items-center"
+                        >
+                          <BookOpen className="h-4 w-4 mr-2 inline-block flex-shrink-0" />
+                          {book.title}
+                        </a>
+                      </TableCell>
+                      <TableCell>{book.author}</TableCell>
+                      <TableCell>{book.language ? book.language.charAt(0).toUpperCase() + book.language.slice(1) : ""}</TableCell>
+                      <TableCell>{book.category || ""}</TableCell>
+                      <TableCell>{book.year}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          ) : (
+            <div className={
+              viewMode === VIEW_OPTIONS.GRID
+                ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+                : "space-y-6"
+            }>
+              {paginatedBooks.map((book) => (
+                <div key={book.id} className="h-full w-full">
+                  <BookCard book={book} viewMode={viewMode} />
+                </div>
+              ))}
+            </div>
+          )
         ) : (
           <EmptyState />
         )}
