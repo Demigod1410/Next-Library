@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { LANGUAGES, SCRIPTS, CATEGORIES } from "@/utils/constants";
+import { LANGUAGES, SCRIPTS, CATEGORIES, SUBCATEGORIES } from "@/utils/constants";
 import { SlidersHorizontal, ChevronDown, ChevronUp, X } from "lucide-react";
 
 /**
@@ -100,6 +100,26 @@ const FilterPanel = ({
           </div>
           
           <div className="space-y-2">
+            <label className="text-sm font-medium">Subcategory</label>
+            <Select 
+              value={filters.subcategory || 'all'} 
+              onValueChange={(value) => onFilterChange('subcategory', value)}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="All Subcategories" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Subcategories</SelectItem>
+                {SUBCATEGORIES.map(subcategory => (
+                  <SelectItem key={subcategory} value={subcategory}>
+                    {subcategory}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          
+          <div className="space-y-2">
             <label className="text-sm font-medium">Language</label>
             <Select 
               value={filters.language} 
@@ -172,7 +192,8 @@ FilterPanel.propTypes = {
   filters: PropTypes.shape({
     language: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
-    script: PropTypes.string.isRequired
+    script: PropTypes.string.isRequired,
+    subcategory: PropTypes.string
   }).isRequired,
   yearRange: PropTypes.shape({
     min: PropTypes.number,
