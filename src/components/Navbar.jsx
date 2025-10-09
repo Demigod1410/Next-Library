@@ -155,7 +155,7 @@ export default function Navbar() {
                 height={20}
                 className="h-5 w-5"
               />
-              <span>Modern Book Library</span>
+              <span>Jnanasangraha Book Library</span>
             </Link>
           </div>
           <NavItems className="hidden md:block" />

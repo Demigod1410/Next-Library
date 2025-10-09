@@ -61,7 +61,7 @@ export default function Home() {
             className="space-y-6 text-center md:text-left w-full"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-              Modern Book <span className="text-primary">Library</span>
+              Jnanasangraha Book <span className="text-primary">Library</span>
             </h1>
             <p className="text-xl text-muted-foreground">
               Discover, organize, and explore books from various languages, scripts, and categories.
